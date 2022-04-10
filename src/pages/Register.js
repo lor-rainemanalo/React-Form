@@ -40,12 +40,12 @@ const reducer = (state, action) => {
 
 const initialValues = {
   studentNumber: "",
-  yearLevel: 0,
+  yearLevel: null,
   firstName: "",
   middleName: "",
   lastName: "",
-  college: 0,
-  program: 0,
+  college: null,
+  program: null,
   password: "",
   confirmPassword: "",
 };

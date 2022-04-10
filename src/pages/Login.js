@@ -71,14 +71,9 @@ export default function Login() {
           />
         </Box>
         {studentNumber && password ? (
-          <PrimaryButton width={300} text="Login" showModal="true" />
+          <PrimaryButton width={300} text="Login" showLoginModal={true} />
         ) : (
-          <PrimaryButton
-            disabled={true}
-            width={300}
-            text="Login"
-            showModal="true"
-          />
+          <PrimaryButton disabled={true} width={300} text="Login" />
         )}
         <Box sx={{ display: "flex", color: "#434343" }}>
           <Typography variant="subtitle1">

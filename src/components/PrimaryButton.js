@@ -6,15 +6,21 @@ import { CheckCircle } from "@mui/icons-material";
 export default function PrimaryButton({
   text,
   page,
-  showModal,
+  showLoginModal,
+  showRegModal,
   width,
   disabled = false,
 }) {
   const navigate = useNavigate();
-  const [open, setOpen] = useState(false);
+  const [openLoginModal, setOpenLoginModal] = useState(false);
+  const [openRegModal, setOpenRegModal] = useState(false);
 
   const handleClick = () => {
-    return showModal ? setOpen(true) : navigate(`/${page}`);
+    return showLoginModal
+      ? setOpenLoginModal(true)
+      : showRegModal
+      ? setOpenRegModal(true)
+      : navigate(`/${page}`);
   };
 
   const style = {
@@ -54,7 +60,7 @@ export default function PrimaryButton({
       >
         {text}
       </Button>
-      <Modal open={open} onClose={() => setOpen(false)}>
+      <Modal open={openLoginModal} onClose={() => setOpenLoginModal(false)}>
         <Box sx={style}>
           <CheckCircle sx={{ fontSize: 100, color: "#77DD77" }} />
           <Typography variant="h4" sx={{ color: "#77DD77", fontWeight: "600" }}>
@@ -62,6 +68,17 @@ export default function PrimaryButton({
           </Typography>
           <Typography variant="h6" sx={{ color: "#434343" }}>
             Welcome to student portal!
+          </Typography>
+        </Box>
+      </Modal>
+      <Modal open={openRegModal} onClose={() => setOpenRegModal(false)}>
+        <Box sx={style}>
+          <CheckCircle sx={{ fontSize: 100, color: "#77DD77" }} />
+          <Typography variant="h4" sx={{ color: "#77DD77", fontWeight: "600" }}>
+            Success!
+          </Typography>
+          <Typography variant="h6" sx={{ color: "#434343" }}>
+            Details are now being saved.
           </Typography>
         </Box>
       </Modal>

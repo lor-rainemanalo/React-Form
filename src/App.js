@@ -29,7 +29,7 @@ function App() {
         }}
       >
         <PrimaryButton width={180} text="Login" page="login" />
-        <SecondaryButton width={180} text="Register" />
+        <SecondaryButton width={180} text="Register" page="register" />
       </Box>
     </Box>
   );

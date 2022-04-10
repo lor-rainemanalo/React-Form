@@ -6,34 +6,63 @@ import {
   Select,
   Typography,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useReducer } from "react";
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import PrimaryButton from "../components/PrimaryButton";
 import RegisterField from "../components/RegisterField";
 import SecondaryButton from "../components/SecondaryButton";
 
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "newStudentNumber":
+      return { ...state, studentNumber: action.payload };
+    case "newYearLevel":
+      return { ...state, yearLevel: action.payload };
+    case "newFirstName":
+      return { ...state, firstName: action.payload };
+    case "newMiddleName":
+      return { ...state, middleName: action.payload };
+    case "newLastName":
+      return { ...state, lastName: action.payload };
+    case "newCollege":
+      return { ...state, college: action.payload };
+    case "newProgram":
+      return { ...state, program: action.payload };
+    case "newPassword":
+      return { ...state, password: action.payload };
+    case "newConfirmPassword":
+      return { ...state, confirmPassword: action.payload };
+    default:
+      throw new Error();
+  }
+};
+
+const initialValues = {
+  studentNumber: "",
+  yearLevel: 0,
+  firstName: "",
+  middleName: "",
+  lastName: "",
+  college: 0,
+  program: 0,
+  password: "",
+  confirmPassword: "",
+};
+
 export default function Register() {
-  const [studentNumber, setStudentNumber] = useState("");
-  const [yearLevel, setYearLevel] = useState(0);
-  const [firstName, setFirstName] = useState("");
-  const [middleName, setMiddleName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [college, setCollege] = useState(0);
-  const [program, setProgram] = useState(0);
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [state, dispatch] = useReducer(reducer, initialValues);
 
   const allFieldsHaveValues =
-    studentNumber &&
-    yearLevel &&
-    firstName &&
-    middleName &&
-    lastName &&
-    college &&
-    program &&
-    password &&
-    confirmPassword;
+    state.studentNumber &&
+    state.yearLevel &&
+    state.firstName &&
+    state.middleName &&
+    state.lastName &&
+    state.college &&
+    state.program &&
+    state.password &&
+    state.confirmPassword;
 
   return (
     <>
@@ -55,8 +84,10 @@ export default function Register() {
         </Typography>
         <Box>
           <RegisterField
-            value={studentNumber}
-            onChange={(e) => setStudentNumber(e.target.value)}
+            value={state.studentNumber}
+            onChange={(e) =>
+              dispatch({ type: "newStudentNumber", payload: e.target.value })
+            }
             label="Student Number"
             width={290}
           />
@@ -75,8 +106,10 @@ export default function Register() {
             </InputLabel>
             <Select
               label="Year Level"
-              value={yearLevel}
-              onChange={(e) => setYearLevel(e.target.value)}
+              value={state.yearLevel}
+              onChange={(e) =>
+                dispatch({ type: "newYearLevel", payload: e.target.value })
+              }
             >
               <MenuItem value={1}>1</MenuItem>
               <MenuItem value={2}>2</MenuItem>
@@ -88,22 +121,28 @@ export default function Register() {
         </Box>
 
         <RegisterField
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
+          value={state.firstName}
+          onChange={(e) =>
+            dispatch({ type: "newFirstName", payload: e.target.value })
+          }
           label="First Name"
           width={450}
         />
 
         <Box>
           <RegisterField
-            value={middleName}
-            onChange={(e) => setMiddleName(e.target.value)}
+            value={state.middleName}
+            onChange={(e) =>
+              dispatch({ type: "newMiddleName", payload: e.target.value })
+            }
             label="Middle Name"
             width={217}
           />
           <RegisterField
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
+            value={state.lastName}
+            onChange={(e) =>
+              dispatch({ type: "newLastName", payload: e.target.value })
+            }
             label="Last Name"
             width={217}
             marginLeft={2}
@@ -121,8 +160,10 @@ export default function Register() {
           </InputLabel>
           <Select
             label="College"
-            value={college}
-            onChange={(e) => setCollege(e.target.value)}
+            value={state.college}
+            onChange={(e) =>
+              dispatch({ type: "newCollege", payload: e.target.value })
+            }
           >
             <MenuItem value={1}>
               College of Information and Computing Sciences
@@ -141,8 +182,10 @@ export default function Register() {
           </InputLabel>
           <Select
             label="Program"
-            value={program}
-            onChange={(e) => setProgram(e.target.value)}
+            value={state.program}
+            onChange={(e) =>
+              dispatch({ type: "newProgram", payload: e.target.value })
+            }
           >
             <MenuItem value={1}>Computer Science</MenuItem>
             <MenuItem value={2}>Information Technology</MenuItem>
@@ -151,15 +194,19 @@ export default function Register() {
         </FormControl>
 
         <RegisterField
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          value={state.password}
+          onChange={(e) =>
+            dispatch({ type: "newPassword", payload: e.target.value })
+          }
           type="password"
           label="Enter Password"
           width={450}
         />
         <RegisterField
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
+          value={state.confirmPassword}
+          onChange={(e) =>
+            dispatch({ type: "newConfirmPassword", payload: e.target.value })
+          }
           type="password"
           label="Confirm Password"
           width={450}

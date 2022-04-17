@@ -72,7 +72,7 @@ code {
 .home {
   background-image: url("/src/images/home-graphics.png");
   background-size: cover;
-  padding: 50px 75px 140px 75px;
+  padding: 50px 75px 255px 75px;
   align-items: center;
 }
 

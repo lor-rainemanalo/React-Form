@@ -1,5 +1,5 @@
 import { AccountCircleOutlined, VpnKeyOutlined } from "@mui/icons-material";
-import { Box, TextField, Typography } from "@mui/material";
+import { Box, TextField, InputAdornment } from "@mui/material";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import PrimaryButton from "../components/PrimaryButton";
@@ -23,7 +23,7 @@ export default function Login() {
             borderRadius: 2,
             mt: 5,
             px: 1,
-            width: 300,
+            width: 350,
           }}
           mb={1}
         >
@@ -35,7 +35,7 @@ export default function Login() {
             value={studentNumber}
             onChange={(e) => setStudentNumber(e.target.value)}
             label="Student Number"
-            variant="standard"
+            variant="outlined"
             size="small"
             fullWidth
           />
@@ -47,7 +47,7 @@ export default function Login() {
             bgcolor: "#fff",
             borderRadius: 2,
             px: 1,
-            width: 300,
+            width: 350,
           }}
           mb={5}
         >
@@ -59,7 +59,7 @@ export default function Login() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             label="Password"
-            variant="standard"
+            variant="outlined"
             size="small"
             fullWidth
           />
@@ -73,6 +73,7 @@ export default function Login() {
           <PrimaryButton disabled={true} width={350} text="Login" />
         )}
         <p className="text-subtitle" style={{ margin: "5px 0 0" }}>
+          <button className="btn primary">LOGIN</button>
           Don't have an account?{" "}
           <Link className="link" to="/register">
             Register

@@ -36,8 +36,8 @@ export default function PrimaryButton({
     bgcolor: "#d3623f",
     p: 4,
     borderRadius: 5,
-    color: "#fff",
-    
+    color: "#d3623f",
+    borderColor: "#d3623f",
   };
 
   return (

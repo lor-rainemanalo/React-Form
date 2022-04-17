@@ -16,15 +16,15 @@ export default function SecondaryButton({
         disabled={disabled}
         variant="outlined"
         sx={{
-          borderColor: "#000",
-          color: "#000",
+          borderColor: "#d3623f",
+          color: "#d3623f",
           boxShadow: "none",
           width: width,
           fontWeight: "600",
           ":hover": {
-            bgcolor: "#000",
-            color: "#fff",
-            borderColor: "#000",
+            bgcolor: "none",
+            color: "#7f4925",
+            borderColor: "#7f4925",
             boxShadow: "none",
           },
         }}

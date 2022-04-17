@@ -32,32 +32,17 @@ export default function PrimaryButton({
     top: "20%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: 400,
-    bgcolor: "#E3FBE4",
+    width: 350,
+    bgcolor: "#d3623f",
     p: 4,
     borderRadius: 5,
+    color: "#fff",
+    
   };
 
   return (
     <>
-      <Button
-        disabled={disabled}
-        variant="contained"
-        sx={{
-          bgcolor: "#000",
-          color: "#EECB6E",
-          boxShadow: "none",
-          width: width,
-          fontWeight: "600",
-          ":hover": {
-            bgcolor: "#EECB6E",
-            color: "#000",
-            borderColor: "#EECB6E",
-            boxShadow: "none",
-          },
-        }}
-        onClick={handleClick}
-      >
+      <Button disabled={disabled} onClick={handleClick}>
         {text}
       </Button>
       <Modal open={openLoginModal} onClose={() => setOpenLoginModal(false)}>

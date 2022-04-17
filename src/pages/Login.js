@@ -2,7 +2,6 @@ import { AccountCircleOutlined, VpnKeyOutlined } from "@mui/icons-material";
 import { Box, TextField, Typography } from "@mui/material";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Header from "../components/Header";
 import PrimaryButton from "../components/PrimaryButton";
 
 export default function Login() {
@@ -10,29 +9,23 @@ export default function Login() {
   const [password, setPassword] = useState("");
 
   return (
-    <>
-      <Header />
-      <Box
-        mt={10}
-        sx={{
-          width: 300,
-        }}
-      >
-        <Typography variant="h4" sx={{ color: "#434343", fontWeight: "600" }}>
-          Student Login
-        </Typography>
-        <Typography variant="subtitle1" sx={{ color: "#434343" }}>
+    <div className="login">
+      <div className="center">
+        <p className="header-form">Student Login</p>
+        <p className="text-subtitle" style={{ margin: "5px 0 0" }}>
           Welcome back! Please enter your credentials.
-        </Typography>
-
+        </p>
         <Box
           sx={{
             display: "flex",
-            alignItems: "flex-end",
+            alignItems: "center",
             bgcolor: "#fff",
             borderRadius: 2,
+            mt: 5,
+            px: 1,
+            width: 300,
           }}
-          mb={2}
+          mb={1}
         >
           <AccountCircleOutlined
             fontSize="small"
@@ -50,12 +43,13 @@ export default function Login() {
         <Box
           sx={{
             display: "flex",
-            alignItems: "flex-end",
+            alignItems: "center",
             bgcolor: "#fff",
-            width: 300,
             borderRadius: 2,
+            px: 1,
+            width: 300,
           }}
-          mb={10}
+          mb={5}
         >
           <VpnKeyOutlined
             fontSize="small"
@@ -70,20 +64,21 @@ export default function Login() {
             fullWidth
           />
         </Box>
+
+        {/*CHECKING*/}
+
         {studentNumber && password ? (
-          <PrimaryButton width={300} text="Login" showLoginModal={true} />
+          <PrimaryButton width={350} text="Login" showLoginModal={true} />
         ) : (
-          <PrimaryButton disabled={true} width={300} text="Login" />
+          <PrimaryButton disabled={true} width={350} text="Login" />
         )}
-        <Box sx={{ display: "flex", color: "#434343" }}>
-          <Typography variant="subtitle1">
-            Don't have an account?{" "}
-            <Link className="link" to="/register">
-              Register
-            </Link>
-          </Typography>
-        </Box>
-      </Box>
-    </>
+        <p className="text-subtitle" style={{ margin: "5px 0 0" }}>
+          Don't have an account?{" "}
+          <Link className="link" to="/register">
+            Register
+          </Link>
+        </p>
+      </div>
+    </div>
   );
 }

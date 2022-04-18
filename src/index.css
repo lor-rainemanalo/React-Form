@@ -36,13 +36,26 @@ code {
 }
 /* End of HEADINGS */
 
-/*BUTTONS*/
+/*INPUT*/
 .link {
   color: #434343;
   font-weight: 600;
 }
 
-/*End of BUTTONS*/
+select {
+  cursor: pointer;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+}
+
+select:first-child {
+  color: "#808080";
+}
+
+/*End of INPUT*/
 
 /* PAGES */
 .home {

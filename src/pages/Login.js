@@ -1,8 +1,9 @@
 import { AccountCircleOutlined, VpnKeyOutlined } from "@mui/icons-material";
-import { Box, TextField } from "@mui/material";
+import { Box } from "@mui/material";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import PrimaryButton from "../components/PrimaryButton";
+import RVOSTextField from "../components/RVOSTextfield";
 
 export default function Login() {
   const [studentNumber, setStudentNumber] = useState("");
@@ -29,15 +30,13 @@ export default function Login() {
         >
           <AccountCircleOutlined
             fontSize="small"
-            sx={{ color: "#434343", mr: 1, my: 0.5 }}
+            sx={{ color: "#434343", mr: 1 }}
           />
-          <TextField
+          <RVOSTextField
             value={studentNumber}
+            placeholder="Student Number"
+            width={350}
             onChange={(e) => setStudentNumber(e.target.value)}
-            label="Student Number"
-            variant="outlined"
-            size="small"
-            fullWidth
           />
         </Box>
         <Box
@@ -55,13 +54,12 @@ export default function Login() {
             fontSize="small"
             sx={{ color: "#434343", mr: 1, my: 0.5 }}
           />
-          <TextField
+          <RVOSTextField
+            type="password"
             value={password}
+            placeholder="Password"
+            width={350}
             onChange={(e) => setPassword(e.target.value)}
-            label="Password"
-            variant="outlined"
-            size="small"
-            fullWidth
           />
         </Box>
 

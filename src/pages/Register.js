@@ -1,16 +1,10 @@
-import {
-  Box,
-  FormControl,
-  InputLabel,
-  MenuItem,
-  Select,
-  Typography,
-} from "@mui/material";
+import { Box } from "@mui/material";
 import React, { useReducer } from "react";
 import { Link } from "react-router-dom";
 import PrimaryButton from "../components/PrimaryButton";
-import RegisterField from "../components/RegisterField";
 import SecondaryButton from "../components/SecondaryButton";
+import RVOSTextField from "../components/RVOSTextfield";
+import RVOSSelect from "../components/RVOSSelect";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -77,138 +71,111 @@ export default function Register() {
           }}
         >
           <p className="header-form">Account Registration</p>
-          <p className="text-subtitle" style={{ margin: "5px 0 0" }}>
+          <p className="text-subtitle" style={{ margin: "5px 0 15px 0" }}>
             Fill up the form to create your student account.
           </p>
 
           <Box>
-            <RegisterField
+            <RVOSTextField
               value={state.studentNumber}
               onChange={(e) =>
                 dispatch({ type: "newStudentNumber", payload: e.target.value })
               }
-              label="Student Number"
-              width={290}
+              placeholder="Student Number"
+              width={300}
+              marginTop={10}
             />
 
-            <FormControl
-              sx={{ width: 144, marginTop: 2, marginLeft: 2 }}
-              size="small"
-            >
-              <InputLabel
-                sx={{
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                Year Level
-              </InputLabel>
-              <Select
-                label="Year Level"
-                value={state.yearLevel}
-                onChange={(e) =>
-                  dispatch({ type: "newYearLevel", payload: e.target.value })
-                }
-              >
-                <MenuItem value={1}>1</MenuItem>
-                <MenuItem value={2}>2</MenuItem>
-                <MenuItem value={3}>3</MenuItem>
-                <MenuItem value={4}>4</MenuItem>
-                <MenuItem value={5}>5</MenuItem>
-              </Select>
-            </FormControl>
+            <RVOSSelect
+              placeholder="Year Level"
+              options={["1", "2", "3", "4", "5"]}
+              value={state.yearLevel}
+              onChange={(e) =>
+                dispatch({ type: "newYearLevel", payload: e.target.value })
+              }
+              width={120}
+              marginLeft={8}
+              marginRight={2}
+            />
           </Box>
 
-          <RegisterField
+          <RVOSTextField
             value={state.firstName}
             onChange={(e) =>
               dispatch({ type: "newFirstName", payload: e.target.value })
             }
-            label="First Name"
-            width={450}
+            placeholder="First Name"
+            width={430}
+            marginTop={10}
           />
 
           <Box>
-            <RegisterField
+            <RVOSTextField
               value={state.middleName}
               onChange={(e) =>
                 dispatch({ type: "newMiddleName", payload: e.target.value })
               }
-              label="Middle Name"
-              width={217}
+              placeholder="Middle Name"
+              width={200}
+              marginTop={10}
             />
-            <RegisterField
+            <RVOSTextField
               value={state.lastName}
               onChange={(e) =>
                 dispatch({ type: "newLastName", payload: e.target.value })
               }
-              label="Last Name"
-              width={217}
-              marginLeft={2}
+              placeholder="Last Name"
+              width={200}
+              marginLeft={8}
+              marginTop={10}
             />
           </Box>
 
-          <FormControl sx={{ width: 450, marginTop: 2 }} size="small">
-            <InputLabel
-              sx={{
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              College
-            </InputLabel>
-            <Select
-              label="College"
-              value={state.college}
-              onChange={(e) =>
-                dispatch({ type: "newCollege", payload: e.target.value })
-              }
-            >
-              <MenuItem value={1}>
-                College of Information and Computing Sciences
-              </MenuItem>
-            </Select>
-          </FormControl>
+          <RVOSSelect
+            placeholder="College"
+            options={["College of Information and Computing Sciences"]}
+            value={state.college}
+            onChange={(e) =>
+              dispatch({ type: "newCollege", payload: e.target.value })
+            }
+            width={450}
+            marginRight={2}
+          />
 
-          <FormControl sx={{ width: 450, marginTop: 2 }} size="small">
-            <InputLabel
-              sx={{
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              Program
-            </InputLabel>
-            <Select
-              label="Program"
-              value={state.program}
-              onChange={(e) =>
-                dispatch({ type: "newProgram", payload: e.target.value })
-              }
-            >
-              <MenuItem value={1}>Computer Science</MenuItem>
-              <MenuItem value={2}>Information Technology</MenuItem>
-              <MenuItem value={3}>Information Systems</MenuItem>
-            </Select>
-          </FormControl>
+          <RVOSSelect
+            placeholder="Program"
+            options={[
+              "Computer Science",
+              "Information Technology",
+              "Information Systems",
+            ]}
+            value={state.program}
+            onChange={(e) =>
+              dispatch({ type: "newProgram", payload: e.target.value })
+            }
+            width={450}
+            marginRight={2}
+          />
 
-          <RegisterField
+          <RVOSTextField
             value={state.password}
             onChange={(e) =>
               dispatch({ type: "newPassword", payload: e.target.value })
             }
             type="password"
-            label="Enter Password"
-            width={450}
+            placeholder="Enter Password"
+            width={430}
+            marginTop={10}
           />
-          <RegisterField
+          <RVOSTextField
             value={state.confirmPassword}
             onChange={(e) =>
               dispatch({ type: "newConfirmPassword", payload: e.target.value })
             }
             type="password"
-            label="Confirm Password"
-            width={450}
+            placeholder="Confirm Password"
+            width={430}
+            marginTop={10}
           />
 
           <Box
@@ -225,7 +192,7 @@ export default function Register() {
             )}
             <SecondaryButton width={217} text="Cancel" />
           </Box>
-          <p className="text-subtitle" style={{ margin: "5px 0 0" }}>
+          <p className="text-subtitle" style={{ margin: "15px 0 0" }}>
             Already have an account?{" "}
             <Link className="link" to="/login">
               Login

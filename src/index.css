@@ -51,6 +51,14 @@ select:focus {
   outline: none;
 }
 
+select:required:invalid {
+  color: gray;
+}
+
+option {
+  color: black;
+}
+
 /*End of INPUT*/
 
 /* PAGES */

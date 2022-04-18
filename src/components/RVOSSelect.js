@@ -10,6 +10,7 @@ export default function RVOSSelect({
 }) {
   return (
     <select
+      required
       style={{
         width: width,
         margin: 2,

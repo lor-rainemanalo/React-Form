@@ -72,10 +72,15 @@ select:required:invalid {
 option {
   color: black;
 }
-
 /*End of INPUT*/
 
 /* PAGES */
+.center {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
 .home {
   background-image: url("/src/images/home-graphics.png");
   background-size: cover;
@@ -89,12 +94,6 @@ option {
   height: 657px;
   padding: 0 75px;
   align-items: center;
-}
-
-.center {
-  position: absolute;
-  top: 50%;
-  transform: translate(0, -50%);
 }
 
 .register {
@@ -118,6 +117,7 @@ option {
 }
 /* End of PAGES */
 
+/* ANIMATION */
 .App-logo {
   pointer-events: none;
 }
@@ -136,3 +136,4 @@ option {
     transform: rotate(360deg);
   }
 }
+/*End of ANIMATION */

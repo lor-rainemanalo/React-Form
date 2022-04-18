@@ -1,5 +1,4 @@
 import { Box } from "@mui/material";
-
 import PrimaryButton from "./components/PrimaryButton";
 import SecondaryButton from "./components/SecondaryButton";
 

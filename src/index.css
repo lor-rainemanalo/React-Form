@@ -51,10 +51,6 @@ select:focus {
   outline: none;
 }
 
-select:first-child {
-  color: "#808080";
-}
-
 /*End of INPUT*/
 
 /* PAGES */

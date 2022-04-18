@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@500;600;900&display=swap");
+
 body {
   margin: auto;
   font-family: "Inter", sans-serif;
@@ -35,37 +37,11 @@ code {
 /* End of HEADINGS */
 
 /*BUTTONS*/
-.btn {
-  font-family: "Inter", sans-serif;
+.link {
+  color: #434343;
   font-weight: 600;
-  font-size: 18px;
-  border-radius: 5px;
-  text-transform: uppercase;
-  padding: 10px 0px;
-  width: 350px;
-  margin: 10px 10px;
 }
 
-.primary {
-  background-color: #d3623f;
-  color: #fff;
-}
-
-.primary:hover {
-  background-color: #7f4925;
-}
-
-.secondary {
-  background: none;
-  border-color: #d3623f;
-  color: #d3623f;
-}
-
-.secondary:hover {
-  background: none;
-  border-color: #7f4925;
-  color: #7f4925;
-}
 /*End of BUTTONS*/
 
 /* PAGES */

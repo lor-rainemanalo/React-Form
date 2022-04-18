@@ -42,7 +42,24 @@ export default function PrimaryButton({
 
   return (
     <>
-      <Button disabled={disabled} onClick={handleClick}>
+      <Button
+        disabled={disabled}
+        variant="contained"
+        sx={{
+          bgcolor: "#d3623f",
+          color: "#fff",
+          boxShadow: "none",
+          width: width,
+          fontWeight: "600",
+          fontSize: "18px",
+          ":hover": {
+            bgcolor: "#7f4925",
+            borderColor: "#EECB6E",
+            boxShadow: "none",
+          },
+        }}
+        onClick={handleClick}
+      >
         {text}
       </Button>
       <Modal open={openLoginModal} onClose={() => setOpenLoginModal(false)}>

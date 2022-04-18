@@ -1,6 +1,5 @@
 import { Box, Typography } from "@mui/material";
 
-import "./App.css";
 import PrimaryButton from "./components/PrimaryButton";
 import SecondaryButton from "./components/SecondaryButton";
 

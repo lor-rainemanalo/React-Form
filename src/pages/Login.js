@@ -1,5 +1,5 @@
 import { AccountCircleOutlined, VpnKeyOutlined } from "@mui/icons-material";
-import { Box, TextField, InputAdornment } from "@mui/material";
+import { Box, TextField } from "@mui/material";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import PrimaryButton from "../components/PrimaryButton";
@@ -68,12 +68,11 @@ export default function Login() {
         {/*CHECKING*/}
 
         {studentNumber && password ? (
-          <PrimaryButton width={350} text="Login" showLoginModal={true} />
+          <PrimaryButton width={365} text="Login" showLoginModal={true} />
         ) : (
-          <PrimaryButton disabled={true} width={350} text="Login" />
+          <PrimaryButton disabled={true} width={365} text="Login" />
         )}
-        <p className="text-subtitle" style={{ margin: "5px 0 0" }}>
-          <button className="btn primary">LOGIN</button>
+        <p className="text-subtitle" style={{ margin: "15px 0 0" }}>
           Don't have an account?{" "}
           <Link className="link" to="/register">
             Register

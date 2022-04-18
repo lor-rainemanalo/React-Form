@@ -21,6 +21,7 @@ export default function SecondaryButton({
           boxShadow: "none",
           width: width,
           fontWeight: "600",
+          fontSize: "18px",
           ":hover": {
             bgcolor: "none",
             color: "#7f4925",

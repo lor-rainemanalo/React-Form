@@ -3,6 +3,7 @@ import { Box } from "@mui/material";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import PrimaryButton from "../components/PrimaryButton";
+import SecondaryButton from "../components/SecondaryButton";
 import RVOSTextField from "../components/RVOSTextfield";
 
 export default function Login() {
@@ -64,12 +65,14 @@ export default function Login() {
         </Box>
 
         {/*CHECKING*/}
-
         {studentNumber && password ? (
           <PrimaryButton width={365} text="Login" showLoginModal={true} />
         ) : (
           <PrimaryButton disabled={true} width={365} text="Login" />
         )}
+        <p style={{ margin: "8px 0 0" }} />
+        <SecondaryButton width={365} text="Cancel" />
+
         <p className="text-subtitle" style={{ margin: "15px 0 0" }}>
           Don't have an account?{" "}
           <Link className="link" to="/register">

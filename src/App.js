@@ -7,17 +7,14 @@ function App() {
   return (
     <div className="home">
       <p className="header-home">Red Velvet Online Services</p>
-      <p
-        className="text-subtitle"
-        style={{ width: "355px", marginLeft: "10px" }}
-      >
+      <p className="text-subtitle" style={{ width: "370px" }}>
         Welcome to our online services page! Please select the transaction that
         you wish to perform.
       </p>
       <Box
         sx={{
           display: "flex",
-          gap: "2rem",
+          gap: "1rem",
         }}
       >
         <PrimaryButton width={180} text="Login" page="login" />

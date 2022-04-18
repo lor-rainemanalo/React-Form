@@ -29,15 +29,15 @@ export default function PrimaryButton({
     alignItems: "center",
     justifyContent: "center",
     position: "absolute",
-    top: "20%",
+    top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
     width: 350,
-    bgcolor: "#d3623f",
+    bgcolor: "#E3FBE4",
     p: 4,
     borderRadius: 5,
-    color: "#d3623f",
-    borderColor: "#d3623f",
+    color: "#E3FBE4",
+    borderColor: "#E3FBE4",
   };
 
   return (
@@ -65,10 +65,10 @@ export default function PrimaryButton({
       <Modal open={openLoginModal} onClose={() => setOpenLoginModal(false)}>
         <Box sx={style}>
           <CheckCircle sx={{ fontSize: 100, color: "#77DD77" }} />
-          <Typography variant="h4" sx={{ color: "#77DD77", fontWeight: "600" }}>
+          <Typography variant="h5" sx={{ color: "#77DD77", fontWeight: "600" }}>
             Success!
           </Typography>
-          <Typography variant="h6" sx={{ color: "#434343" }}>
+          <Typography variant="small" sx={{ color: "#434343" }}>
             Welcome to student portal!
           </Typography>
         </Box>
@@ -76,10 +76,10 @@ export default function PrimaryButton({
       <Modal open={openRegModal} onClose={() => setOpenRegModal(false)}>
         <Box sx={style}>
           <CheckCircle sx={{ fontSize: 100, color: "#77DD77" }} />
-          <Typography variant="h4" sx={{ color: "#77DD77", fontWeight: "600" }}>
+          <Typography variant="h5" sx={{ color: "#77DD77", fontWeight: "600" }}>
             Success!
           </Typography>
-          <Typography variant="h6" sx={{ color: "#434343" }}>
+          <Typography variant="small" sx={{ color: "#434343" }}>
             Details are now being saved.
           </Typography>
         </Box>

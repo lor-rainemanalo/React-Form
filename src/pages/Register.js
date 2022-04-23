@@ -1,10 +1,11 @@
-import { Box } from "@mui/material";
-import React, { useReducer } from "react";
+import { Box, Modal, Typography } from "@mui/material";
+import React, { useReducer, useState } from "react";
 import { Link } from "react-router-dom";
 import PrimaryButton from "../components/PrimaryButton";
 import SecondaryButton from "../components/SecondaryButton";
 import RVOSTextField from "../components/RVOSTextfield";
 import RVOSSelect from "../components/RVOSSelect";
+import { CheckCircle } from "@mui/icons-material";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -43,8 +44,26 @@ const initialValues = {
   confirmPassword: "",
 };
 
+const style = {
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 350,
+  bgcolor: "#E3FBE4",
+  p: 4,
+  borderRadius: 5,
+  color: "#E3FBE4",
+  borderColor: "#E3FBE4",
+};
+
 export default function Register() {
   const [state, dispatch] = useReducer(reducer, initialValues);
+  const [openRegModal, setOpenRegModal] = useState(false);
 
   const allFieldsHaveValues =
     state.studentNumber &&
@@ -186,7 +205,11 @@ export default function Register() {
             }}
           >
             {allFieldsHaveValues ? (
-              <PrimaryButton width={217} text="Submit" showRegModal={true} />
+              <PrimaryButton
+                width={217}
+                text="Submit"
+                onClick={() => setOpenRegModal(true)}
+              />
             ) : (
               <PrimaryButton disabled={true} width={217} text="Submit" />
             )}
@@ -199,6 +222,20 @@ export default function Register() {
             </Link>
           </p>
         </Box>
+        <Modal open={openRegModal} onClose={() => setOpenRegModal(false)}>
+          <Box sx={style}>
+            <CheckCircle sx={{ fontSize: 100, color: "#77DD77" }} />
+            <Typography
+              variant="h5"
+              sx={{ color: "#77DD77", fontWeight: "600" }}
+            >
+              Success!
+            </Typography>
+            <Typography variant="small" sx={{ color: "#434343" }}>
+              Details are now being saved.
+            </Typography>
+          </Box>
+        </Modal>
       </div>
     </>
   );

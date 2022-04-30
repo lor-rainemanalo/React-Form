@@ -28,7 +28,9 @@ export default function RVOSSelect({
         {placeholder}
       </option>
       {options?.map((option, index) => (
-        <option value={index}>{option}</option>
+        <option key={option} value={index}>
+          {option}
+        </option>
       ))}
     </select>
   );

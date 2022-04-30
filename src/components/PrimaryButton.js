@@ -3,11 +3,9 @@ import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 export default function PrimaryButton({
-  type = "button",
   text,
   page = "",
   width,
-  disabled = false,
   ...otherProps
 }) {
   const navigate = useNavigate();
@@ -16,8 +14,7 @@ export default function PrimaryButton({
     <>
       {page === "" ? (
         <Button
-          disabled={disabled}
-          type={type}
+          variant="contained"
           sx={{
             bgcolor: "#d3623f",
             color: "#fff",
@@ -37,8 +34,6 @@ export default function PrimaryButton({
         </Button>
       ) : (
         <Button
-          disabled={disabled}
-          type={type}
           sx={{
             bgcolor: "#d3623f",
             color: "#fff",

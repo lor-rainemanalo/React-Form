@@ -6,14 +6,13 @@ export default function SecondaryButton({
   text,
   page = "",
   width,
-  disabled = false,
+  ...otherProps
 }) {
   const navigate = useNavigate();
 
   return (
     <>
       <Button
-        disabled={disabled}
         variant="outlined"
         sx={{
           borderColor: "#d3623f",
@@ -30,6 +29,7 @@ export default function SecondaryButton({
           },
         }}
         onClick={() => navigate(`/${page}`)}
+        {...otherProps}
       >
         {text}
       </Button>

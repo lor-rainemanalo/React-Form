@@ -41,26 +41,11 @@ export default function Login() {
 
   const error = {
     invalidUser: "Invalid student number or password",
-    // invalidPassword: "Invalid password",
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const userData = userDB.find((user) => user.studentNo === studentNumber);
-
-    // if (userData) {
-    //   if (userData.passw !== password) {
-    //     setErrorMessage({ passw: error.invalidPassword });
-    //   } else {
-    //     setErrorMessage({});
-    //     setOpenLoginModal(true);
-    //   }
-    // } else {
-    //   setErrorMessage({
-    //     ...errorMessage,
-    //     studentNo: error.invalidStudentNumber,
-    //   });
-    // }
 
     if (!userData || userData.passw !== password) {
       setErrorMessage({ message: error.invalidUser });
@@ -132,8 +117,8 @@ export default function Login() {
                 color: "red",
               }}
             >
-              <Error fontSize="small" sx={{ mr: 1 }} />
-              <p style={{ fontSize: 14 }}>{errorMessage.message}</p>
+              <Error sx={{ mr: 1, fontSize: 12 }} />
+              <p style={{ fontSize: 12 }}>{errorMessage.message}</p>
             </Box>
           )}
           <Box

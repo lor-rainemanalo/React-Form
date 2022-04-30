@@ -40,26 +40,33 @@ export default function Login() {
   ];
 
   const error = {
-    invalidStudentNumber: "Invalid student number",
-    invalidPassword: "Invalid password",
+    invalidUser: "Invalid student number or password",
+    // invalidPassword: "Invalid password",
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const userData = userDB.find((user) => user.studentNo === studentNumber);
 
-    if (userData) {
-      if (userData.passw !== password) {
-        setErrorMessage({ passw: error.invalidPassword });
-      } else {
-        setErrorMessage({});
-        setOpenLoginModal(true);
-      }
+    // if (userData) {
+    //   if (userData.passw !== password) {
+    //     setErrorMessage({ passw: error.invalidPassword });
+    //   } else {
+    //     setErrorMessage({});
+    //     setOpenLoginModal(true);
+    //   }
+    // } else {
+    //   setErrorMessage({
+    //     ...errorMessage,
+    //     studentNo: error.invalidStudentNumber,
+    //   });
+    // }
+
+    if (!userData || userData.passw !== password) {
+      setErrorMessage({ message: error.invalidUser });
     } else {
-      setErrorMessage({
-        ...errorMessage,
-        studentNo: error.invalidStudentNumber,
-      });
+      setErrorMessage({});
+      setOpenLoginModal(true);
     }
   };
 
@@ -71,18 +78,6 @@ export default function Login() {
           Welcome back! Please enter your credentials.
         </p>
         <form onSubmit={handleSubmit}>
-          {errorMessage.studentNo && (
-            <Box
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                color: "red",
-              }}
-            >
-              <Error fontSize="small" sx={{ mr: 1 }} />
-              <p style={{ fontSize: 14 }}>{errorMessage.studentNo}</p>
-            </Box>
-          )}
           <Box
             sx={{
               display: "flex",
@@ -106,18 +101,6 @@ export default function Login() {
               required
             />
           </Box>
-          {errorMessage.passw && (
-            <Box
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                color: "red",
-              }}
-            >
-              <Error fontSize="small" sx={{ mr: 1 }} />
-              <p style={{ fontSize: 14 }}>{errorMessage.passw}</p>
-            </Box>
-          )}
           <Box
             sx={{
               display: "flex",
@@ -127,7 +110,6 @@ export default function Login() {
               px: 1,
               width: 350,
             }}
-            mb={5}
           >
             <VpnKeyOutlined
               fontSize="small"
@@ -142,11 +124,24 @@ export default function Login() {
               required
             />
           </Box>
+          {errorMessage.message && (
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                color: "red",
+              }}
+            >
+              <Error fontSize="small" sx={{ mr: 1 }} />
+              <p style={{ fontSize: 14 }}>{errorMessage.message}</p>
+            </Box>
+          )}
           <Box
             sx={{
               display: "flex",
               flexDirection: "column",
               gap: 1,
+              marginTop: 5,
             }}
           >
             <PrimaryButton type="submit" width={365} text="Login" />

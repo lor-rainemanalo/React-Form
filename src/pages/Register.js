@@ -68,7 +68,7 @@ export default function Register() {
 
   const studentRe = /^\d{10}$/;
   const passRe =
-    /^(?=.*[0-9])(?=.*[A-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/;
+    /^(?=.*[0-9])(?=.*[A-Z])(?=.*[!@#$%^&*.,-?])[a-zA-Z0-9!@#$%^&*.,-?]{8,}$/;
 
   const allFieldsAreValid =
     studentRe.test(state.studentNumber) &&

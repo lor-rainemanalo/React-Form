@@ -35,8 +35,8 @@ export default function Login() {
   const [errorMessage, setErrorMessage] = useState({});
 
   const userDB = [
-    { studentNo: "2018115281", passw: "123qwe" },
-    { studentNo: "2018115280", passw: "asdzxc" },
+    { studentNo: "2018115281", passw: "lor-raine" },
+    { studentNo: "2018111659", passw: "nicole" },
   ];
 
   const error = {
@@ -147,7 +147,7 @@ export default function Login() {
             Success!
           </Typography>
           <Typography variant="small" sx={{ color: "#434343" }}>
-            Welcome to student portal!
+            Welcome to the student portal!
           </Typography>
         </Box>
       </Modal>
